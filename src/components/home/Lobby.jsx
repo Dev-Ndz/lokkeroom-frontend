@@ -61,7 +61,7 @@ const Lobby = () => {
             <div className="section-header">
             <h2>{lobbyId.name}</h2>
             {isAdmin?(
-                <button>Add member</button>
+                <button id="add-member">Add member</button>
             ):(<></>)}
             </div>
             

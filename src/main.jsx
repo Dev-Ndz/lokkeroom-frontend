@@ -12,6 +12,7 @@ import Register from './components/connexion/register';
 import Home from './components/home/home';
 import RequireAuth from './components/RequireAuth.jsx';
 // import { SocketProvider } from './context/SocketProvider.jsx';
+import {UserListProvider} from './context/UserListProvider.jsx'
 import Index from './components/home/Index.jsx'
 import Lobby from './components/home/Lobby.jsx';
 import { LobbyIdProvider } from './context/LobbyIdProvider.jsx';
@@ -59,11 +60,11 @@ export const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      {/* <SocketProvider> */}
+      <UserListProvider>
         <LobbyIdProvider>
         <RouterProvider router = {router} />
         </LobbyIdProvider>
-      {/* </SocketProvider> */}
+      </UserListProvider>
     </AuthProvider>
 
 

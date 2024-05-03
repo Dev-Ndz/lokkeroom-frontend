@@ -10,7 +10,12 @@ section{
     display:flex;
     flex-direction: column;
     padding: 5px 15px;
+    justify-content: space-between;
 
+}
+
+footer{
+    height:10px;
 }
 
 #lobby-list-section, #member-list{
@@ -22,6 +27,7 @@ section{
     display:flex;
     flex-direction: column;
     padding: 0px 15px;
+    flex-grow:1;
 
 }
 .lobby{
@@ -33,11 +39,13 @@ section{
 }
 .new-lobby{
     margin-top: 10px;
+
 }
 button.lobby{
     width:100%;
     color: var(--highlight);
     border:1px solid var(--highlight);
+
     &:hover{
         border:1px solid var(--highlight);
         background-color: var(--highlight);
@@ -56,6 +64,12 @@ input.lobby{
         outline:solid 1px var(--highlight);
 
     }
+}
+#add-member{
+    margin-bottom: 0px;
+}
+#logout{
+    margin-left: 20px;
 }
 
 .form-container{

@@ -1,0 +1,18 @@
+.new-message{
+    display: flex;
+    gap:5px;
+    padding-top: 10px;
+}
+input{
+    padding: 0 10px;
+    flex-grow:1;
+    margin-bottom: 10px;
+    border:1px solid var(--bg-color-secondary);
+    &:focus{
+        border:1px solid var(--highlight);
+        outline:none;
+    }
+}
+#send-message{
+    padding: 10px 35px;
+}

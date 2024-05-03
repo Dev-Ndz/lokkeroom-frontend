@@ -26,7 +26,6 @@ const Login = () => {
         setErrMsg('');
     },[password, email])
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{

@@ -2,6 +2,7 @@ import axios from "../../utils/axios";
 import { useState, useEffect } from "react";
 // import useSocket from '../../hooks/useSocket'
 import useLobbyId from "../../hooks/useLobbyId";
+import './css/textbox.css'
 
 const Textbox = ({setlocalMessage}) => {
 
@@ -22,27 +23,28 @@ const Textbox = ({setlocalMessage}) => {
                 {headers: { 'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`}}
             )
             setlocalMessage(true);
+            setInputValue("")
         }catch(err){
             setErrMsg(err.message)
             console.log(err)
         }
     }
 
-    const HandleClick = async(e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         sendMessage(inputValue);
     }
 
 
     return (
-        <div className="new-message">
+        <form className="new-message" onSubmit={handleSubmit}>
             <input 
                 type="text" 
                 value={inputValue}
                 onChange={ (e) => setInputValue(e.target.value)}
             />
-            <button onClick={HandleClick}>Send</button>
-        </div>
+            <button type="submit" id="send-message">Send</button>
+        </form>
      );
 
 }

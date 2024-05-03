@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "../../utils/axios";
 import useLobbyId from "../../hooks/useLobbyId";
-import Member from "./Member";
+import User from "./User";
 const MemberList = () => {
 
-    const [members, setMembers] = useState([]);
+    const [users, setuUers] = useState([]);
     const {lobbyId} = useLobbyId();
     const url = `lobby/${lobbyId.id}/get-userlist`
 
