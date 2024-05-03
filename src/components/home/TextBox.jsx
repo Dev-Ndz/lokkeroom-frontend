@@ -1,20 +1,27 @@
-import axios from "../../api/axios";
-import { useState } from "react";
-import io from "socket.io-client"
+import axios from "../../utils/axios";
+import { useState, useEffect } from "react";
+// import useSocket from '../../hooks/useSocket'
+import useLobbyId from "../../hooks/useLobbyId";
 
-const socket = io.connect("https://lokkeroom-7168807cbabe.herokuapp.com")
+const Textbox = ({setlocalMessage}) => {
 
-const Textbox = () => {
+    // const {socket} = useSocket();
+    const {lobbyId} = useLobbyId();
+    const url = "/lobby/"+lobbyId.id
+
     const[inputValue, setInputValue] = useState("")
     const[errMsg, setErrMsg] = useState("")
 
     const sendMessage = async(content) => {
         try{
+            console.log("send message to ", lobbyId.id)
+            // socket.emit("send_message",{lobbyId:lobbyId.id})
             await axios.post(
-                "/lobby/14",
+                url,
                 { content:content },
                 {headers: { 'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`}}
             )
+            setlocalMessage(true);
         }catch(err){
             setErrMsg(err.message)
             console.log(err)

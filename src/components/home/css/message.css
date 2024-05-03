@@ -1,0 +1,39 @@
+.message {
+  background-color: var(--bg-color);
+  margin-top: 10px;
+}
+
+.container {
+  padding: 8px 16px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.author {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sent {
+  align-self: flex-end;
+}
+.sent .container {
+  background-color: var(--highlight);
+  color: var(--bg-color);
+}
+.sent .author {
+  display: none;
+}
+
+.recieved {
+  align-self: flex-start;
+}
+.recieved .container {
+  background-color: var(--bg-color-secondary);
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 5px;
+}/*# sourceMappingURL=message.css.map */

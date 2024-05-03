@@ -11,6 +11,10 @@ import Login from './components/connexion/login';
 import Register from './components/connexion/register';
 import Home from './components/home/home';
 import RequireAuth from './components/RequireAuth.jsx';
+// import { SocketProvider } from './context/SocketProvider.jsx';
+import Index from './components/home/Index.jsx'
+import Lobby from './components/home/Lobby.jsx';
+import { LobbyIdProvider } from './context/LobbyIdProvider.jsx';
 
 export const router = createBrowserRouter([
 
@@ -20,7 +24,17 @@ export const router = createBrowserRouter([
     children:[
       {
         index:"/home",
-        element:<Home />
+        element:<Home />,
+        children:[
+          {
+            path:"lobby/:lobby_id",
+            element:<Lobby />
+          },
+          {
+            index:"index",
+            element:<Index />
+          }
+        ]
       }
 
     ]
@@ -45,7 +59,11 @@ export const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-    <RouterProvider router = {router} />
+      {/* <SocketProvider> */}
+        <LobbyIdProvider>
+        <RouterProvider router = {router} />
+        </LobbyIdProvider>
+      {/* </SocketProvider> */}
     </AuthProvider>
 
 

@@ -2,11 +2,11 @@ import { useState, useRef, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Link, useNavigate, useLocation} from "react-router-dom"
 
-import axios from "../../api/axios";
+import axios from "../../utils/axios";
 const LOGIN_URL = '/login'
 
 const Login = () => {
-    const {setAuth} = useAuth();
+    const {setAuth, setUserId, setUsername} = useAuth();
 
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
@@ -30,6 +30,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
+            localStorage.removeItem('jwtToken');
             const response = await axios.post(LOGIN_URL,
                 {
                     "email": email,
@@ -39,7 +40,13 @@ const Login = () => {
             console.log(response.data);
             const token = response.data.token
             localStorage.setItem('jwtToken', token);
-            setAuth({email, password, token})
+            setAuth({
+                email, 
+                password, 
+                token,
+                userId: response.data.id,
+                username: response.data.nickname
+            })
             setEmail('')
             setPassword('')
             navigate(from, {replace: true })
