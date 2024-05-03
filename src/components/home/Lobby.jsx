@@ -1,5 +1,5 @@
 import axios from "../../utils/axios";
-import { useEffect, useState} from "react";
+import { useEffect, useState, useRef, useLayoutEffect} from "react";
 import Message from "./Message";
 import Textbox from "./TextBox";
 // import useSocket from "../../hooks/useSocket";
@@ -56,6 +56,12 @@ const Lobby = () => {
         SetAdminRight();
     },[lobbyId])
 
+    const divRef = useRef();
+    useLayoutEffect(() => {
+        if (divRef.current) 
+            divRef.current.scrollTop = divRef.current.scrollHeight;
+    }, [messagesList]);
+        
     return ( 
         <section id = "chat">
             <div className="section-header">
@@ -65,7 +71,7 @@ const Lobby = () => {
             ):(<></>)}
             </div>
             
-            <div className="list">
+            <div className="list" ref={divRef}>
 
             {messagesList?.map((message) => (
                 <Message message={message} key={message.id} />
