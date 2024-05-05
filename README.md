@@ -1,12 +1,13 @@
 # LokkerRoom - Front-end
 
 LokkerRoom is a chat application designed to facilitate real-time communication between users in various chat rooms, also known as lobbies. This front-end application is part of a client-server architecture, with the server-side implemented in Node.js and the front-end in React.
+the back-end can be found here : [GitHub](https://github.com/Dev-Ndz/lokkeroom)
 
 ## Installation
 
 To install LokkerRoom locally, follow these steps:
 
-1. Clone the repository from [GitHub](https://github.com/your/repository).
+1. Clone the repository from [GitHub](https://github.com/Dev-Ndz/lokkeroom-frontend).
 2. Navigate to the project directory.
 3. Run `npm install` to install the necessary dependencies.
 
@@ -15,7 +16,7 @@ To install LokkerRoom locally, follow these steps:
 Once installed, you can start LokkerRoom by running `npm run dev`. This will launch the application in your default web browser.
 
 ## Features
-
+ 
 
 ### Finished Features
 - Create new lobby
@@ -36,6 +37,7 @@ Once installed, you can start LokkerRoom by running `npm run dev`. This will lau
 ### To do
 - Private message
 - Add sockets or other way to update message list when a new message is send from another user.
+- Make a mobile version (this is for you Simon <3)
 
 
 ## Back-End Integration
