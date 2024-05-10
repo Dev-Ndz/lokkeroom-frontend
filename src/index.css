@@ -97,4 +97,6 @@ button:hover{
   cursor:pointer;
 }
 
-
+.btn-login{
+  margin-right: 12px;
+}

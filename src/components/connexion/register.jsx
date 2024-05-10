@@ -58,7 +58,9 @@ const Register = () => {
               required
             />
           </div>
-          <button type="submit">Register</button>
+          <button type="submit" className="btn-login">
+            Register
+          </button>
           <Link to="/auth">I have an account</Link>
         </form>
       </div>
